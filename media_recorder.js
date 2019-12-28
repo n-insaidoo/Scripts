@@ -31,7 +31,7 @@ function handleDataAvailable(event) {
 }
 
 var video = document.getElementById("df8-2"); //the id of a canvas element in the page
-var stream = video.captureStream();
+var stream = video.mozCaptureStream ? video.mozCaptureStream() : video.captureStream();
 profile = { mimeType: "video/webm" };
 var mediaRecorder = new MediaRecorder(stream, profile);
 mediaRecorder.ondataavailable = handleDataAvailable;
